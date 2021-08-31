@@ -5,7 +5,7 @@ function ResultList({ results, handleClick }) {
   return (
     <ul className="result-container">
       {results.map((film) => (
-        <li key={film.imdbID} className="film">
+        <li key={film.id} className="film-container">
           <Film film={film} handleClick={handleClick} />
         </li>
       ))}

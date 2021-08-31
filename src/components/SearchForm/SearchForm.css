@@ -1,0 +1,28 @@
+.search-form {
+  padding: 40px;
+}
+
+.search-form__input {
+  font-size: 20px;
+  border: none;
+  border-bottom: solid 1px #000;
+  background-color: beige;
+}
+
+.search-form__button {
+  font-size: 20px;
+  border: none;
+  background-color: burlywood;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.search-form__input:focus {
+  border: none;
+  background-color: beige;
+}
+
+.search-form__input:active {
+    border: none;
+    background-color: beige;
+  }

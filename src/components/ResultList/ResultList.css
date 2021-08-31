@@ -1,0 +1,15 @@
+.result-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 40px;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.film-container {
+  max-width: 300px;
+  list-style: none;
+  text-align: left;
+}

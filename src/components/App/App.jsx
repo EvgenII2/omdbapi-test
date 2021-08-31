@@ -11,27 +11,20 @@ function App() {
     omdbapi
       .getFilmsByTitle(request)
       .then((data) => {
-        console.log("data", data);
         setResults(data.Search);
       })
       .catch((err) => console.log("Error: " + err));
   };
 
   const handleClick = (imdbID) => {
-    omdbapi
-      .getInfoAboutFilm(imdbID)
-      .then((data) => {
-        console.log("data", data);
-        return data;
-      })
-      .catch((err) => console.log("Error: " + err));
+    return omdbapi.getInfoAboutFilm(imdbID);
   };
 
   return (
-    <>
+    <div className="App">
       <SearchForm handleSearchSubmit={handleSearchSubmit} />
       <ResultList results={results} handleClick={handleClick} />
-    </>
+    </div>
   );
 }
 
