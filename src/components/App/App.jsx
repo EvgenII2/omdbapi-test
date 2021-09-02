@@ -28,6 +28,10 @@ function App() {
     if (isLoading) setIsLoading(false);
   }, [isLoading]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [request]);
+
   const handleClick = (imdbID) => {
     return omdbapi.getInfoAboutFilm(imdbID);
   };
@@ -38,7 +42,7 @@ function App() {
         handleSearchSubmit={handleSearchSubmit}
         setRequest={setRequest}
       />
-      {!isLoading && results && results.length > 0 && (
+      {isLoading ? <>Wait</> : results && results.length > 0 && (
         <>
           <ResultList
             results={results}
