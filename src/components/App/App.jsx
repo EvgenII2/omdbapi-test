@@ -12,13 +12,13 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSearchSubmit = (request, page) => {
+    setIsLoading(true);
     omdbapi
       .getFilmsByTitle(request, page)
       .then((data) => {
         if (data.Response) {
           setResults(data.Search);
           setLastPage(Math.ceil(data.totalResults / 10));
-          setIsLoading(true);
         }
       })
       .catch((err) => console.log("Error: " + err));
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     if (isLoading) setIsLoading(false);
-  }, [isLoading]);
+  }, [results]);
 
   useEffect(() => {
     setPage(1);
@@ -42,18 +42,23 @@ function App() {
         handleSearchSubmit={handleSearchSubmit}
         setRequest={setRequest}
       />
-      {isLoading ? <>Wait</> : results && results.length > 0 && (
-        <>
-          <ResultList
-            results={results}
-            setPage={setPage}
-            page={page}
-            lastPage={lastPage}
-            request={request}
-            handleClick={handleClick}
-            handleSearchSubmit={handleSearchSubmit}
-          />
-        </>
+      {isLoading ? (
+        <div>Waiting</div>
+      ) : (
+        results &&
+        results.length > 0 && (
+          <>
+            <ResultList
+              results={results}
+              setPage={setPage}
+              page={page}
+              lastPage={lastPage}
+              request={request}
+              handleClick={handleClick}
+              handleSearchSubmit={handleSearchSubmit}
+            />
+          </>
+        )
       )}
     </div>
   );
