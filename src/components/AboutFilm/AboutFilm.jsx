@@ -2,7 +2,6 @@ import React from "react";
 import "./AboutFilm.css";
 
 function AboutFilm({ about }) {
-  console.log(about);
   return (
     <>
       <p className="film__desc">

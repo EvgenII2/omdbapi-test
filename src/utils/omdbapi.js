@@ -11,7 +11,7 @@ class OmdbApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getFilmsByTitle(searchRequest, page) {
+  getFilmsByTitle(searchRequest, page = 1) {
     return fetch(
       `${this._baseUrl}?apikey=${this._apiKey}&s=${searchRequest}&page=${page}`
     ).then(this._checkResponse);
