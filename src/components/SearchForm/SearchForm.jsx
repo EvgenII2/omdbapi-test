@@ -1,12 +1,13 @@
 import React from "react";
 import "./SearchForm.css";
 
-function SearchForm({ handleSearchSubmit }) {
+function SearchForm({ handleSearchSubmit, setRequest }) {
   const [value, setValue] = React.useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
     handleSearchSubmit(value);
+    setRequest(value);
   };
 
   return (
