@@ -1,0 +1,26 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.5s, 0s;
+  transition-delay: 0s, 0.5s;
+}
+
+.overlay_visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s, 0s;
+}
+
+.overlay__image {
+  width: 60%;
+}

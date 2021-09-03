@@ -24,7 +24,7 @@ function PageList({ setPage, page, handleSearchSubmit, request, lastPage }) {
             {page - 1}
           </li>
         )}
-        <li className="page-item">{page}</li>
+        <li className="page-item page-item_current">{page}</li>
         {page + 1 < lastPage - 1 && (
           <li onClick={onClick} className="page-item">
             {page + 1}
