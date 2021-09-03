@@ -1,6 +1,7 @@
 .film_image {
   width: 300px;
   aspect-ratio: 2/3;
+  min-height: 300px;
 }
 
 .film__title {
@@ -22,4 +23,10 @@
 
 .film__subtitle {
   font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .film_image {
+    max-width: 200px;
+  }
 }

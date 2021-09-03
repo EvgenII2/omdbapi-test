@@ -22,7 +22,7 @@ function Film({ film, handleClick }) {
   }
 
   function getAboutFilm() {
-    if (about) return <AboutFilm handleClick={handleClick} about={about} />;
+    if (about) return <AboutFilm about={about} />;
   }
   return (
     <>

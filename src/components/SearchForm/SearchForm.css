@@ -23,6 +23,16 @@
 }
 
 .search-form__input:active {
-    border: none;
-    background-color: beige;
+  border: none;
+  background-color: beige;
+}
+
+@media (max-width: 500px) {
+  .search-form__button {
+    margin-top: 10px;
+    font-size: 15px;
   }
+  .search-form__input {
+    font-size: 15px;
+  }
+}

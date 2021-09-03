@@ -3,6 +3,7 @@ import { omdbapi } from "../../utils/omdbapi";
 import SearchForm from "../SearchForm/SearchForm";
 import ResultList from "../ResultList/ResultList";
 import React, { useEffect } from "react";
+import LoadingImage from "../LoadingImage/LoadingImage";
 
 function App() {
   const [results, setResults] = React.useState([]);
@@ -19,14 +20,11 @@ function App() {
         if (data.Response) {
           setResults(data.Search);
           setLastPage(Math.ceil(data.totalResults / 10));
+          setIsLoading(false);
         }
       })
       .catch((err) => console.log("Error: " + err));
   };
-
-  useEffect(() => {
-    if (isLoading) setIsLoading(false);
-  }, [results]);
 
   useEffect(() => {
     setPage(1);
@@ -42,23 +40,21 @@ function App() {
         handleSearchSubmit={handleSearchSubmit}
         setRequest={setRequest}
       />
-      {isLoading ? (
-        <div>Waiting</div>
+      <LoadingImage isVisible={isLoading} />
+      {results ? (
+        <>
+          <ResultList
+            results={results}
+            setPage={setPage}
+            page={page}
+            lastPage={lastPage}
+            request={request}
+            handleClick={handleClick}
+            handleSearchSubmit={handleSearchSubmit}
+          />
+        </>
       ) : (
-        results &&
-        results.length > 0 && (
-          <>
-            <ResultList
-              results={results}
-              setPage={setPage}
-              page={page}
-              lastPage={lastPage}
-              request={request}
-              handleClick={handleClick}
-              handleSearchSubmit={handleSearchSubmit}
-            />
-          </>
-        )
+        <div>Don't search {request}</div>
       )}
     </div>
   );
